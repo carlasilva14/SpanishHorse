@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Curiosidades PRE | Interactivo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="video-fondo-completo">
+    <video autoplay muted loop playsinline>
+        <source src="video-fondo.mp4" type="video/mp4">
+    </video>
+</div>
+<header>
+    <h1>CURIOSITIES AND EXCLUSIVITY</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="origen.html">Origin</a></li>
+            <li><a href="tipos.html">Types</a></li>
+            <li><a href="curiosidades.html">Curiosities</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="contenedor-principal-curiosidades">
+    <div class="columna-centrada">
+
+        <section class="tarjeta">
+            <h2>Choose your favorite horse</h2>
+            <div class="contenedor-foto-fija">
+                <img id="fotoCapa" src="img/capa-inicio.jpg" alt="Caballo">
+            </div>
+            <div class="botonera">
+                <button onclick="cambiarCapa('tordo')">Grey</button>
+                <button onclick="cambiarCapa('castano')">Chestnut</button>
+                <button onclick="cambiarCapa('negro')">Black</button>
+            </div>
+        </section>
+
+        <section class="tarjeta">
+            <h2>Equestrian Dictionary</h2>
+            <p>Click on the terms to learn more:</p>
+            <div class="acordeon">
+                <details>
+                    <summary>PIAFFÉ</summary>
+                    <p>Rhythmic and elevated trot performed in place.</p>
+                </details>
+                <details>
+                    <summary>PASSAGE</summary>
+                    <p>A very high and rhythmic trot where the horse seems to float.
+                </details>
+                <details>
+                    <summary>MOSQUERO</summary>
+                    <p>A bristle or leather ornament that hangs from the headstall to shoo away flies</p>
+                </details>
+                <details>
+                    <summary>APOYO</summary>
+                    <p>Lateral movement where the horse moves sideways crossing its legs.</p>
+                </details>
+                <details>
+                    <summary>REUNION</summary>
+                    <p>A state where the horse shifts its weight to its hindquarters, gaining lightness.</p>
+                </details>
+                <details>
+                    <summary>SERRETA</summary>
+                    <p>
+Metal instrument that is placed on the nose for initial training.</p>
+                </details>
+            </div>
+        </section>
+
+        <section class="tarjeta">
+            <h2>Sounds of the Dehesa</h2>
+            
+            <div class="botonera">
+                <button onclick="sonar('relincho')">🔊 Neigh</button>
+                <button onclick="sonar('galope')">🔊 Gallop</button>
+            </div>
+            <audio id="audRelincho" src="sonidos/relincho.mp3"></audio>
+            <audio id="audGalope" src="sonidos/galope.mp3"></audio>
+        </section>
+
+        <section class="tarjeta formulario-vip">
+            <h2>Exclusive Information</h2>
+            <p>Leave us your contact information to receive news and learn much more about the Spanish horse and its curiosities that will turn you into an expert.</p>
+            <form action="#" method="post" class="form-grid">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Mail" required>
+                <button type="submit" class="btn-verde">SUBSCRIBE NOW</button>
+            </form>
+        </section>
+
+    </div>
+</main>
+
+<script>
+    function cambiarCapa(c) { document.getElementById('fotoCapa').src = 'img/capa-' + c + '.jpg'; }
+    
+    function sonar(s) {
+        let sonido;
+        if(s === 'relincho') sonido = document.getElementById('audRelincho');
+        else sonido = document.getElementById('audGalope');
+        
+        sonido.play().catch(error => {
+            alert("Error: Asegúrate de que el archivo existe en la carpeta 'sonidos'");
+        });
+    }
+</script>
+
+</body>
+</html>
